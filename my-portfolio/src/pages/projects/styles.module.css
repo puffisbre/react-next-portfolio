@@ -1,0 +1,10 @@
+
+
+.projectsSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-top: 200px;
+    height: 42vh;
+}

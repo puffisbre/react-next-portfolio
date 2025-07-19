@@ -1,0 +1,30 @@
+.iconParent{
+    display: flex;
+    align-items: center;
+    width: 125px;
+    height: 45px;
+    color: white;
+    border: 1px solid #e0e0e049;
+    border-radius: 15px;
+    justify-content: space-evenly;
+    background-color: #e0e0e049;
+}
+
+
+.techStackContainer{
+   display: grid;
+   justify-content: center;
+   gap: 5px;
+   grid-template-columns: auto auto auto;
+ margin-bottom: 20px;
+ height: 30vh;
+
+}
+
+.techStackSection{
+   margin-bottom: 200px;
+   display: flex;
+     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

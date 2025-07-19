@@ -1,0 +1,50 @@
+.menuContainer{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    right: 0;
+    z-index: 1000;
+    margin-top: -200px;
+}
+
+.menuOpen {
+  animation: menuOpen 0.2s forwards;
+}
+
+.menuClose {
+    color: transparent;
+  animation: menuClose 0.2s forwards;
+}
+
+@keyframes menuOpen {
+    0%   {width:0px;}
+  100% {width:300px;}
+}
+
+@keyframes menuClose {
+  0%   { width: 300px; }
+  100% { width: 0; }
+}
+
+.closeButton{
+    position: absolute;
+    width: 40px;
+    right: 0;
+}
+
+.menuList{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.listItem{
+    font-size: 30px;
+    text-decoration: underline;
+}
