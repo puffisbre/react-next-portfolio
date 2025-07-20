@@ -8,6 +8,7 @@ import Button from '@/components/buttons/button';
 import styles from './styles.module.css';
 import Techstack from '@/pages/techstack/page';
 import Projects from '@/pages/projects/page';
+import Contact from '@/pages/contact/page';
 import { FaChevronDown } from "react-icons/fa";
 
 const MainPage = () => {
@@ -57,10 +58,11 @@ const MainPage = () => {
     <>
     <Button buttonClass={styles.nextPageButton} onClick={scrollToNextSection} toPage='/about' text={<FaChevronDown style={nextpageIcon}/>}/>
     <Header onClick={scrollBackToTop}/>
-      <div style={{ scrollMarginTop: '100px'}} ref={(el) => { sectionsRef.current[0] = el; }}><Home /></div>
-      <div style={{ scrollMarginTop: '100px'}} ref={(el) => { sectionsRef.current[1] = el; }}><About /></div>
-      <div style={{ scrollMarginTop: '100px'}} ref={(el) => { sectionsRef.current[2] = el; }}><Techstack /></div>
-      <div style={{ scrollMarginTop: '100px'}} ref={(el) => { sectionsRef.current[3] = el; }}><Projects /></div>
+      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[0] = el; }}><Home /></div>
+      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[1] = el; }}><About /></div>
+      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[2] = el; }}><Techstack /></div>
+      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[3] = el; }}><Projects /></div>
+      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[4] = el; }}><Contact /></div>
     </>
   )
 }

@@ -16,10 +16,10 @@
 }
 
 .aboutContainer p{
-    width: 400px;
+
     font-size: 20px;
-    text-align: left;
-    margin-left: 20px;
+    text-align: center;
+   
 }
 
 
@@ -29,7 +29,6 @@
     height: 170px;
     overflow: hidden;
     position: relative;
-    z-index: -5;
 }
 .aboutImage{
     object-fit:cover;

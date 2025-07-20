@@ -1,10 +1,41 @@
+.iconParent{
+    display: flex;
+    align-items: center;
+    width: 110px;
+    height: 45px;
+    color: white;
+    border: 1px solid #e0e0e049;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    background-color: #e0e0e049;
+}
 
+.iconHolder{
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   grid-template-columns: 110px 110px 110px;
+   gap: 5px;
+ margin-bottom: 20px;
+ margin-top: 10px;
+
+}
+
+.firstProject{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 90vw;
+    margin-bottom: 100px;
+}
 
 .projectsSection{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: white;
     margin-top: 200px;
-    height: 42vh;
+    height: 200vh;
 }

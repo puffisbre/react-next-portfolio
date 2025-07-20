@@ -1,0 +1,58 @@
+.contactContainer{
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 200px;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.theForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     width: 400px;
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.formSection label{
+     width: 70px;
+  margin-bottom: 0.5rem;
+}
+
+.formSection input{
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formSection textarea{
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formSection input::placeholder{
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
-
 :root {
   --background-color: conic-gradient(
     from 226.49deg at 50% 50%,
@@ -29,9 +28,10 @@
   }
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
+html,body {
+ margin: 0px;
+  padding: 0px;
+  box-sizing: 0px;
   background: var(--background-color);
   background-attachment: fixed;
   font-family: var(--main-font);

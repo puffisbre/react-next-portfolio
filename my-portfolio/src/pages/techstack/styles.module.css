@@ -5,7 +5,7 @@
     height: 45px;
     color: white;
     border: 1px solid #e0e0e049;
-    border-radius: 15px;
+    border-radius: 5px;
     justify-content: space-evenly;
     background-color: #e0e0e049;
 }
@@ -17,14 +17,14 @@
    gap: 5px;
    grid-template-columns: auto auto auto;
  margin-bottom: 20px;
- height: 30vh;
-
+    height: 42vh;
 }
 
 .techStackSection{
-   margin-bottom: 200px;
+   margin-bottom: 300px;
    display: flex;
      flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
