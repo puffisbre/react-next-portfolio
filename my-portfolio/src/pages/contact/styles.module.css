@@ -7,6 +7,41 @@
     margin-bottom: 200px;
 }
 
+.success {
+  background-color: #e6ffed;      
+  border: 1px solid #2ecc71;      
+  color: #2ecc71;                 
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.error {
+  background-color: #ffe6e6;      
+  border: 1px solid #e74c3c;      
+  color: #e74c3c;                 
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .formContainer{
     display: flex;
     flex-direction: column;
@@ -24,6 +59,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .formSection{
@@ -55,4 +91,128 @@
  top: 0;
  left: 0;
 }
+
+.contactSection{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 50px;
+}
+
+.socialLinks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.submitButton{
+  align-self: center;
+   border: solid 1px #ccc;
+  margin-top: 10px;
+   width: 100px;
+}
+
+.iconSize{
+  font-size: 40px;
+}
+
+.sectionTitle{
+  text-align:center;
+ font-size: 30px;
+  color:white ;
+   margin-top: 200px;
+}
+
+@media (min-width: 600px) {
+
+  .sectionTitle{
+  text-align:center;
+ font-size: 30px;
+  color:white ;
+  padding-top: 600px;
+  font-size: 50px;
+}
+.theForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     width: 700px;
+}
+
+.formSection label{
+     width: 70px;
+  margin-bottom: 0.5rem;
+  font-size: 25px;
+}
+
+.formSection input{
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem 1rem;
+}
+
+.formSection input::placeholder{
+ font-size: 22px;
+}
+
+.formSection textarea{
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formSection textarea::placeholder{
+ font-size: 22px;
+}
+
+.submitButton{
+  align-self: center;
+   border: solid 1px #ccc;
+  margin-top: 10px;
+   width: 300px;
+   height: 50px;
+   font-size: 20px;
+}
+
+.contactSection{
+  padding-top: 50px;
+}
+
+.infoContainer h1{
+  font-size: 25px;
+}
+
+.infoContainer p{
+  font-size: 20px;
+}
+
+.iconSize{
+  font-size: 60px;
+}
+
+ }
+
+  @media (min-width: 1280px) {
+.contactContainer{
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 200px;
+    padding-top: 100px;
+}
+
+.sectionTitle{
+  text-align:center;
+ font-size: 30px;
+  color:white ;
+  padding-top: 600px;
+  font-size: 50px;
+}
+
+  }
 

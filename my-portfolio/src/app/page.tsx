@@ -58,11 +58,11 @@ const MainPage = () => {
     <>
     <Button buttonClass={styles.nextPageButton} onClick={scrollToNextSection} toPage='/about' text={<FaChevronDown style={nextpageIcon}/>}/>
     <Header onClick={scrollBackToTop}/>
-      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[0] = el; }}><Home /></div>
-      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[1] = el; }}><About /></div>
-      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[2] = el; }}><Techstack /></div>
-      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[3] = el; }}><Projects /></div>
-      <div style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[4] = el; }}><Contact /></div>
+      <div id="home" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[0] = el; }}><Home /></div>
+      <div id="about" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[1] = el; }}><About /></div>
+      <div id="techstack" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[2] = el; }}><Techstack /></div>
+      <div id="projects" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[3] = el; }}><Projects /></div>
+      <div id="contact" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[4] = el; }}><Contact /></div>
     </>
   )
 }

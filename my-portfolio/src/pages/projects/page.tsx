@@ -33,7 +33,7 @@ const nodeStyle = {color: '#68A063', fontSize: '20px'};
   return (
    <>
    <section className={styles.projectsSection}>
-    <h3 style={{textAlign: 'center', fontSize: '30px',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Projects</h3>
+    <h3 style={{textAlign: 'center',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Projects</h3>
     {
     //#region FirstProject
 
@@ -110,11 +110,11 @@ const nodeStyle = {color: '#68A063', fontSize: '20px'};
       
        <div style={{display: 'flex', alignItems:'center', gap: '10px'}}>
        <span><GitHubIcon style={gitHubStyle}/></span>
-      <a style={{textDecoration: 'underline'}} href='https://github.com/puffisbre/u07-individuell-uppgift-jobchaser-puffisbre'>Frontend</a>
+      <a style={{textDecoration: 'underline'}} href='https://github.com/puffisbre/u07-individuell-uppgift-jobchaser-puffisbre' target="_blank">Frontend</a>
       </div>
       <div style={{display: 'flex', alignItems:'center', gap: '10px'}}>
       <span><WebIcon style={websiteIcon}/></span>
-      <a style={{textDecoration: 'underline'}} href='https://u07felixjobchaser.netlify.app/'>Page Link</a>
+      <a style={{textDecoration: 'underline'}} href='https://u07felixjobchaser.netlify.app/' target="_blank">Page Link</a>
       </div>
       <Image src={JobchaserImage} alt="Jobchaser-project-thumbnail"/>
       <br />

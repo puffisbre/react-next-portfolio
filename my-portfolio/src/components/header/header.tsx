@@ -24,7 +24,7 @@ const Header: React.FC<Header> = ({onClick}) => {
     }
   return (
     <>
-   {openMenu ? <BurgerMenu home='home' about='about' techstack='techstack' projects='projects' contact='contact' closeMenu={toggleMenu}/> : null}
+   {openMenu ? <BurgerMenu home='Home' about='About' techstack='Techstack' projects='Projects' contact='Contact' closeMenu={toggleMenu}/> : null}
    <header className={`${styles.headerMain} ${styles.addBackground}`}>
     <Image src={ProfileImage} alt='profile-image' className={styles.profileImage} width={70} onClick={onClick}/>
     <IoMenu style={burgerIcon} onClick={toggleMenu}/>

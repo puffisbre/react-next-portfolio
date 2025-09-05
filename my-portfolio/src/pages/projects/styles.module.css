@@ -39,3 +39,67 @@
     margin-top: 200px;
     height: 200vh;
 }
+
+
+@media (min-width: 600px) {
+
+    .projectsSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+ padding-top: 600px;
+}
+.projectsSection p{
+    font-size: 25px;
+}
+
+.projectsSection a{
+    font-size: 25px;
+}
+
+.projectsSection h3{
+    font-size: 50px;
+}
+
+.iconParent{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+}
+
+.iconHolder{
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   grid-template-columns: 130px 130px 130px;
+   gap: 25px;
+ margin-bottom: 20px;
+ margin-top: 10px;
+
+}
+}
+
+ @media (min-width: 1280px) {
+.projectsSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding-top: 900px;
+    height: 200vh;
+}
+
+.firstProject{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 40vw;
+    margin-bottom: 100px;
+}
+
+ }

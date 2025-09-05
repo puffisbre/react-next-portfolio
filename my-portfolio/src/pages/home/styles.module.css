@@ -4,9 +4,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     color: white;
     margin-top: 200px;
     height: 42vh;
+}
+
+.topImage{
+      display: none;
+      padding-top: 100px;
+       height: 42vh;
 }
 
 .homeTextContainer h1{
@@ -16,3 +23,90 @@
 .homeTextContainer h3{
       font-size: 25px;
 }
+
+.socialLinks{
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+}
+
+.homeSecondSection{
+       display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 42vh;
+    text-align: center;
+    width: 100%;
+    padding-top: 200px;
+}
+
+.homeSecondSection h3{
+      font-size: 17px;
+}
+
+@media (min-width: 600px) { 
+      .homeTextContainer h1{
+      font-size: 110px;
+}
+
+.topImage{
+      display: none;
+      padding-top: 100px;
+       height: 42vh;
+}
+
+
+.homeTextContainer h3{
+      font-size: 35px;
+}
+
+.homeSecondSection h3{
+      font-size: 27px;
+}
+ }
+
+ @media (min-width: 1280px) { 
+      .homeTextContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left; 
+    padding-left: 300px;
+    color: white;
+    height: 42vh;
+
+}
+
+.homeTextContainer h3{
+      font-size: 25px;
+}
+
+.homeSecondSection{
+       display: flex;
+       flex-direction: row;
+       gap: 50px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 42vh;
+    text-align: center;
+    width: 100%;
+    padding-top: 200px;
+}
+
+.homeTopContainer{
+      display: flex;
+      padding-right: 300px;
+      gap: 100px;
+}
+
+.topImage{
+      display: block;
+      padding-top: 200px;
+       height: 42vh;
+}
+
+  }

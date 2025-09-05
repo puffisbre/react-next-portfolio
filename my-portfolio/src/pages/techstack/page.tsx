@@ -109,13 +109,13 @@ const Techstack = () => {
   return (
     <>
     <section className={styles.techStackSection}>
-    <h3 style={{textAlign: 'center', fontSize: '30px',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Techstack</h3>
+    <h3 style={{textAlign: 'center',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Techstack</h3>
     <div className={styles.techStackContainer}>
    {allIcons.map((item, idx) => (
      <span key={idx}>{item}</span>
    ))}
     </div>
-    <h4 style={{textAlign: 'center', fontSize: '20px', color: 'white'}}>And much more...</h4>
+    <h4 style={{textAlign: 'center', color: 'white'}}>And much more...</h4>
     </section>
     </>
   )
