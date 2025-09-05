@@ -7,7 +7,7 @@ type Button = {
   onClick: () => void
 }
 
-const NextPageButton: React.FC<Button> = ({text, buttonClass, toPage, onClick}) => {
+const NextPageButton: React.FC<Button> = ({text, buttonClass, onClick}) => {
   return (
     <>
         <button onClick={onClick} className={buttonClass}>{text}</button>

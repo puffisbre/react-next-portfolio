@@ -7,7 +7,6 @@ import styles from './styles.module.css';
 import BurgerMenu from '@/components/modals/burgerMenu';
 import Image from "next/image";
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 
 type Header = {
@@ -16,7 +15,6 @@ type Header = {
 const Header: React.FC<Header> = ({onClick}) => {
           const burgerIcon = {color: 'white', fontSize: '70px', margin: '20px'};
     const [openMenu, setOpenMenu] = useState(false);
-    const router = useRouter();
        
 
     function toggleMenu() {

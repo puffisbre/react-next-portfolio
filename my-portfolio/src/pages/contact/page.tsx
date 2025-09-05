@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 import { FaLinkedin as LinkedInIcon } from "react-icons/fa";
@@ -10,35 +11,32 @@ const Contact = () => {
   const gitHubStyle = { color: "#6e5494" };
 
   const [state, handleSubmit] = useForm("mgvzjlod");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.succeeded && formRef.current) {
+      formRef.current.reset();
+    }
+  }, [state.succeeded]);
 
   return (
     <>
       <h3 className={styles.sectionTitle}>Contact</h3>
 
-      {/* Success/Fail notice */}
       {state.succeeded && (
         <p role="status" className={styles.success}>
           Tack! Ditt meddelande är skickat. 🎉
         </p>
       )}
-      {state.errors?.length > 0 && (
+      {Array.isArray(state.errors) && state.errors.length > 0 && (
         <p role="alert" className={styles.error}>
-          Något gick fel—kolla fälten och försök igen.
+          Något gick fel – kolla fälten och försök igen.
         </p>
       )}
 
       <section className={styles.contactContainer}>
         <div className={styles.formContainer}>
-          <form
-            onSubmit={async (e) => {
-              // låt formspree sköta submit; rensa fälten om det lyckas
-              const result = await handleSubmit(e);
-              if (result?.response?.status === 200) {
-                (e.target as HTMLFormElement).reset();
-              }
-            }}
-            className={styles.theForm}
-          >
+          <form ref={formRef} onSubmit={handleSubmit} className={styles.theForm}>
             <div className={styles.formSection}>
               <label htmlFor="name">Name</label>
               <input
@@ -100,13 +98,19 @@ const Contact = () => {
         <div className={styles.infoContainer}>
           <div className={styles.contactSection}>
             <h1 style={{ marginTop: "20px" }}>Where do I live?</h1>
-            <p>Right now I live in Stockholm. More exactly outside Stockholm at Värmdö</p>
+            <p>
+              Right now I live in Stockholm. More exactly outside Stockholm at
+              Värmdö
+            </p>
           </div>
           <div className={styles.contactSection}>
-            <h1 style={{ marginTop: "20px" }}>What am I searching for right now?</h1>
+            <h1 style={{ marginTop: "20px" }}>
+              What am I searching for right now?
+            </h1>
             <p>
-              Right now I'm searching for a LIA-position in Stockholm and hopefully a job after
-              that. Feel free to contact if you have a spot!
+              Right now I&apos;m searching for a LIA-position in Stockholm and
+              hopefully a job after that. Feel free to contact if you have a
+              spot!
             </p>
           </div>
           <div className={styles.contactSection}>
@@ -115,11 +119,22 @@ const Contact = () => {
               <a
                 href="https://www.linkedin.com/in/felix-olsson-stenersj%C3%B6-65b6031b4/"
                 target="_blank"
+                rel="noreferrer"
               >
-                <LinkedInIcon className={styles.iconSize} style={linkedInStyle} />
+                <LinkedInIcon
+                  className={styles.iconSize}
+                  style={linkedInStyle}
+                />
               </a>
-              <a href="https://github.com/puffisbre" target="_blank">
-                <GitHubIcon className={styles.iconSize} style={gitHubStyle} />
+              <a
+                href="https://github.com/puffisbre"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHubIcon
+                  className={styles.iconSize}
+                  style={gitHubStyle}
+                />
               </a>
             </div>
           </div>
@@ -129,4 +144,7 @@ const Contact = () => {
   );
 };
 
+Contact.displayName = "Contact";
+
 export default Contact;
+

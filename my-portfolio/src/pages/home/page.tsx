@@ -3,8 +3,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 import Image from 'next/image';
-import HomeImage from '../../../public/images/glasses-code.jpg'
-import HomeImage2 from '../../../public/images/cartoon-coder.png'
+import HomeImage from '../../../public/images/cartoon-coder.png'
 
 const Home = () => {
 
@@ -19,7 +18,7 @@ const Home = () => {
     <h3>Feel free to browse and get to know me a little bit.</h3>
    </div>
    <div className={styles.topImage}>
-   <Image src={HomeImage2} alt='glasses-code' width={900} style={{borderRadius: "40px" }}/>
+   <Image src={HomeImage} alt='glasses-code' width={900} style={{borderRadius: "40px" }}/>
    </div>
    </div>
    <div className={styles.homeSecondSection}>

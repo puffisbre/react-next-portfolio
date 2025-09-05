@@ -15,7 +15,6 @@ import { TbBrandMysql as MySqlIcon} from "react-icons/tb";
 import { SiNpm as NPMicon} from "react-icons/si";
 import { FaGitAlt as GitIcon} from "react-icons/fa6";
 import { FaGithubSquare as GitHubIcon} from "react-icons/fa";
-//import { FaFigma as FigmaIcon} from "react-icons/fa";
 import { SiMongodb as MongoDbIcon} from "react-icons/si";
 import { SiFirebase as FirebaseLogo} from "react-icons/si";
 import FigmaIcon from '../../../public/images/figma.png'
@@ -37,83 +36,80 @@ const Techstack = () => {
      const npmStyle = {color: '#CC3534', fontSize: '30px'};
      const gitStyle = {color: '#F1502F', fontSize: '30px'};
      const gitHubStyle = {color: '#6e5494', fontSize: '30px'};
-     const figmaStyle = {fontSize: '30px'};
      const mongoDbStyle = {color: '#3FA037', fontSize: '30px'};
      const fireBaseStyle = {color: '#FF8F00', fontSize: '30px'};
    
 
 
-    const allIcons = 
-    [
-    <div className={styles.iconParent}>
-   <NodeIcon style={nodeStyle}/>
-   <span>Node.JS</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <ExpressIcon style={expressStyle}/>
-   <span>Express.JS</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <PrismaIcon style={prismaStyle}/>
-   <span>Prisma ORM</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <TSicon style={tsStyle}/>
-   <span>TypeScript</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <ReactIcon style={reactStyle}/>
-   <span>React</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <NextIcon style={nextStyle}/>
-   <span>Next.JS</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <TailwindIcon style={tailwindStyle}/>
-   <span>Tailwind</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <JavaScriptIcon style={javscriptStyle}/>
-   <span>JavaScript</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <MySqlIcon style={mySqlStyle}/>
-   <span>MySQL</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <NPMicon style={npmStyle}/>
-   <span>NPM</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <GitIcon style={gitStyle}/>
-   <span>GIT</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <GitHubIcon style={gitHubStyle}/>
-   <span>GitHub</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <Image src={FigmaIcon} alt='figmaIcon' width={30}/>
-   <span>Figma</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <MongoDbIcon style={mongoDbStyle}/>
-   <span>MongoDB</span>
-   </div>,
-   <div className={styles.iconParent}>
-   <FirebaseLogo style={fireBaseStyle}/>
-   <span>FireBase</span>
-   </div>
-    ]
+  const allIcons = 
+  [
+  <div className={styles.iconParent} key="node">
+    <NodeIcon style={nodeStyle}/>
+    <span>Node.JS</span>
+  </div>,
+  <div className={styles.iconParent} key="express">
+    <ExpressIcon style={expressStyle}/>
+    <span>Express.JS</span>
+  </div>,
+  <div className={styles.iconParent} key="prisma">
+    <PrismaIcon style={prismaStyle}/>
+    <span>Prisma ORM</span>
+  </div>,
+  <div className={styles.iconParent} key="typescript">
+    <TSicon style={tsStyle}/>
+    <span>TypeScript</span>
+  </div>,
+  <div className={styles.iconParent} key="react">
+    <ReactIcon style={reactStyle}/>
+    <span>React</span>
+  </div>,
+  <div className={styles.iconParent} key="nextjs">
+    <NextIcon style={nextStyle}/>
+    <span>Next.JS</span>
+  </div>,
+  <div className={styles.iconParent} key="tailwind">
+    <TailwindIcon style={tailwindStyle}/>
+    <span>Tailwind</span>
+  </div>,
+  <div className={styles.iconParent} key="javascript">
+    <JavaScriptIcon style={javscriptStyle}/>
+    <span>JavaScript</span>
+  </div>,
+  <div className={styles.iconParent} key="mysql">
+    <MySqlIcon style={mySqlStyle}/>
+    <span>MySQL</span>
+  </div>,
+  <div className={styles.iconParent} key="npm">
+    <NPMicon style={npmStyle}/>
+    <span>NPM</span>
+  </div>,
+  <div className={styles.iconParent} key="git">
+    <GitIcon style={gitStyle}/>
+    <span>GIT</span>
+  </div>,
+  <div className={styles.iconParent} key="github">
+    <GitHubIcon style={gitHubStyle}/>
+    <span>GitHub</span>
+  </div>,
+  <div className={styles.iconParent} key="figma">
+    <Image src={FigmaIcon} alt='figmaIcon' width={30}/>
+    <span>Figma</span>
+  </div>,
+  <div className={styles.iconParent} key="mongodb">
+    <MongoDbIcon style={mongoDbStyle}/>
+    <span>MongoDB</span>
+  </div>,
+  <div className={styles.iconParent} key="firebase">
+    <FirebaseLogo style={fireBaseStyle}/>
+    <span>FireBase</span>
+  </div>
+  ]
   return (
     <>
     <section className={styles.techStackSection}>
     <h3 style={{textAlign: 'center',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Techstack</h3>
     <div className={styles.techStackContainer}>
-   {allIcons.map((item, idx) => (
-     <span key={idx}>{item}</span>
-   ))}
+   {allIcons}
     </div>
     <h4 style={{textAlign: 'center', color: 'white'}}>And much more...</h4>
     </section>
