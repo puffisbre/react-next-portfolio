@@ -2,7 +2,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Home from '../pages/home/page';
-import Header from '../components/header/header';
 import About from '../pages/about/page';
 import Button from '@/components/buttons/button';
 import styles from './styles.module.css';
@@ -14,6 +13,7 @@ import { FaChevronDown } from "react-icons/fa";
 const MainPage = () => {
     const sectionsRef = useRef<Array<HTMLElement | null>>([]);
     const [sectionIndex, setSectionIndex] = useState(0);
+    const [scrollOffset, setScrollOffset] = useState(100);
       const nextpageIcon = {color: 'white', fontSize: '30px'};
 
   const scrollToNextSection = () => {
@@ -27,11 +27,19 @@ const MainPage = () => {
       }
     }
   };
-  const scrollBackToTop = () =>{
-     window.scrollTo({ top: 0, behavior: 'smooth' });
-  setSectionIndex(0);
-  return;
-  }
+
+    useEffect(() => {
+      // Set scroll offset based on screen size (header height + some spacing)
+      const updateScrollOffset = () => {
+        const isMobile = window.innerWidth < 600;
+        setScrollOffset(isMobile ? 90 : 100);
+      };
+      
+      updateScrollOffset();
+      window.addEventListener('resize', updateScrollOffset);
+      
+      return () => window.removeEventListener('resize', updateScrollOffset);
+    }, []);
 
     useEffect(() => {
     const onScroll = () => {
@@ -42,8 +50,8 @@ const MainPage = () => {
 
       const current = sectionPositions.findIndex(
         (pos, i) =>
-          scrollY >= pos - 150 &&
-          (i === sectionPositions.length - 1 || scrollY < sectionPositions[i + 1] - 150)
+          scrollY >= pos - scrollOffset &&
+          (i === sectionPositions.length - 1 || scrollY < sectionPositions[i + 1] - scrollOffset)
       );
 
       if (current !== -1 && current !== sectionIndex) {
@@ -53,16 +61,15 @@ const MainPage = () => {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [sectionIndex]);
+  }, [sectionIndex, scrollOffset]);
   return (
     <>
     <Button buttonClass={styles.nextPageButton} onClick={scrollToNextSection} toPage='/about' text={<FaChevronDown style={nextpageIcon}/>}/>
-    <Header onClick={scrollBackToTop}/>
-      <div id="home" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[0] = el; }}><Home /></div>
-      <div id="about" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[1] = el; }}><About /></div>
-      <div id="techstack" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[2] = el; }}><Techstack /></div>
-      <div id="projects" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[3] = el; }}><Projects /></div>
-      <div id="contact" style={{ scrollMarginTop: '130px'}} ref={(el) => { sectionsRef.current[4] = el; }}><Contact /></div>
+      <div id="home" style={{ scrollMarginTop: `${scrollOffset}px`}} ref={(el) => { sectionsRef.current[0] = el; }}><Home /></div>
+      <div id="about" style={{ scrollMarginTop: `${scrollOffset}px`}} ref={(el) => { sectionsRef.current[1] = el; }}><About /></div>
+      <div id="techstack" style={{ scrollMarginTop: `${scrollOffset}px`}} ref={(el) => { sectionsRef.current[2] = el; }}><Techstack /></div>
+      <div id="projects" style={{ scrollMarginTop: `${scrollOffset}px`}} ref={(el) => { sectionsRef.current[3] = el; }}><Projects /></div>
+      <div id="contact" style={{ scrollMarginTop: `${scrollOffset}px`}} ref={(el) => { sectionsRef.current[4] = el; }}><Contact /></div>
     </>
   )
 }

@@ -28,11 +28,126 @@
   }
 }
 
-html,body {
- margin: 0px;
+html {
+  scroll-behavior: smooth;
+  /* Remove -webkit-overflow-scrolling as it can interfere with fixed positioning on mobile */
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  margin: 0px;
   padding: 0px;
-  box-sizing: 0px;
+  box-sizing: border-box;
   background: var(--background-color);
   background-attachment: fixed;
   font-family: var(--main-font);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Ensure body doesn't interfere with fixed positioning */
+  position: static;
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+}
+
+/* Scroll Animation Classes */
+/* Exclude header from animations - only apply to content sections */
+section .fade-in,
+div[id]:not(header) .fade-in,
+.fade-in:not(header):not([class*="header"]) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+section .fade-in.visible,
+div[id]:not(header) .fade-in.visible,
+.fade-in:not(header):not([class*="header"]).visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section .fade-in-up,
+div[id]:not(header) .fade-in-up,
+.fade-in-up:not(header):not([class*="header"]) {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+section .fade-in-up.visible,
+div[id]:not(header) .fade-in-up.visible,
+.fade-in-up:not(header):not([class*="header"]).visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section .fade-in-left,
+div[id]:not(header) .fade-in-left,
+.fade-in-left:not(header):not([class*="header"]) {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+section .fade-in-left.visible,
+div[id]:not(header) .fade-in-left.visible,
+.fade-in-left:not(header):not([class*="header"]).visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+section .fade-in-right,
+div[id]:not(header) .fade-in-right,
+.fade-in-right:not(header):not([class*="header"]) {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+section .fade-in-right.visible,
+div[id]:not(header) .fade-in-right.visible,
+.fade-in-right:not(header):not([class*="header"]).visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+section .scale-in,
+div[id]:not(header) .scale-in,
+.scale-in:not(header):not([class*="header"]) {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+section .scale-in.visible,
+div[id]:not(header) .scale-in.visible,
+.scale-in:not(header):not([class*="header"]).visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.delay-100 {
+  transition-delay: 0.05s;
+}
+
+.delay-200 {
+  transition-delay: 0.1s;
+}
+
+.delay-300 {
+  transition-delay: 0.15s;
+}
+
+.delay-400 {
+  transition-delay: 0.2s;
+}
+
+.delay-500 {
+  transition-delay: 0.25s;
 }

@@ -1,51 +1,221 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlayOpen {
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+
+.overlayClose {
+  animation: overlayFadeOut 0.2s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .menuContainer{
     position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 300px;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.815);
+    width: 320px;
+    max-width: 85vw;
+    height: 100%;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 42, 120, 0.95) 50%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: white;
     right: 0;
+    top: 0;
+    bottom: 0;
     z-index: 1000;
-    margin-top: -200px;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menuOpen {
-  animation: menuOpen 0.2s forwards;
+  animation: menuSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .menuClose {
-    color: transparent;
-  animation: menuClose 0.2s forwards;
+  animation: menuSlideOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes menuOpen {
-    0%   {width:0px;}
-  100% {width:300px;}
+@keyframes menuSlideIn {
+  from {
+    transform: translateX(100%) translateZ(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) translateZ(0);
+    opacity: 1;
+  }
 }
 
-@keyframes menuClose {
-  0%   { width: 300px; }
-  100% { width: 0; }
+@keyframes menuSlideOut {
+  from {
+    transform: translateX(0) translateZ(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) translateZ(0);
+    opacity: 0;
+  }
 }
 
 .closeButton{
     position: absolute;
-    width: 40px;
-    right: 0;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1001;
+}
+
+.closeButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.closeButton:active {
+    transform: scale(0.95) rotate(90deg);
+}
+
+.closeIcon {
+    font-size: 28px;
+    color: white;
+    transition: color 0.2s ease;
+}
+
+.closeButton:hover .closeIcon {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .menuList{
     display: flex;
-    align-items: center;
     flex-direction: column;
-    margin-top: 50px;
-    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 40px 40px;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    height: 100%;
 }
 
 .listItem{
-    font-size: 30px;
-    text-decoration: underline;
+    width: 100%;
+    cursor: pointer;
+    padding: 16px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.listItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.listItem:hover::before {
+    left: 100%;
+}
+
+.listItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(8px);
+    padding-left: 28px;
+}
+
+.listItem:active {
+    transform: translateX(4px);
+}
+
+.listItemText {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.listItem:hover .listItemText {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 600px) {
+  .menuContainer {
+    width: 380px;
+  }
+
+  .listItemText {
+    font-size: 28px;
+  }
+
+  .menuList {
+    padding: 100px 50px 50px;
+    gap: 12px;
+  }
+
+  .listItem {
+    padding: 20px 24px;
+  }
 }

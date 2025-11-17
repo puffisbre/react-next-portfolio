@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     color: white;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
+    padding: 0 20px;
 }
 
 .success {
@@ -51,7 +52,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-     width: 400px;
+    width: 100%;
+    max-width: 400px;
+    padding: 0 20px;
 }
 
 .infoContainer{
@@ -120,25 +123,28 @@
 
 .sectionTitle{
   text-align:center;
- font-size: 30px;
+  font-size: 30px;
   color:white ;
-   margin-top: 200px;
+  padding-top: 150px;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 600px) {
 
   .sectionTitle{
   text-align:center;
- font-size: 30px;
-  color:white ;
-  padding-top: 600px;
   font-size: 50px;
+  color:white ;
+  padding-top: 200px;
+  margin-bottom: 50px;
 }
 .theForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
-     width: 700px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 40px;
 }
 
 .formSection label{
@@ -198,20 +204,34 @@
   @media (min-width: 1280px) {
 .contactContainer{
      display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
+    gap: 100px;
     color: white;
-    margin-bottom: 200px;
-    padding-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px 300px 0;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sectionTitle{
   text-align:center;
- font-size: 30px;
-  color:white ;
-  padding-top: 600px;
   font-size: 50px;
+  color:white ;
+  padding-top: 150px;
+  margin-bottom: 50px;
+}
+
+.formContainer{
+    flex: 1;
+    max-width: 900px;
+}
+
+.infoContainer{
+    flex: 1;
+    max-width: 700px;
 }
 
   }

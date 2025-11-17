@@ -1,20 +1,114 @@
 .headerMain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.headerContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
   width: 100%;
-  height: 80px; 
-  z-index: 999; 
+  height: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
-.addBackground{
-    background-color: rgba(0, 0, 0, 0.192);
+.profileButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
 }
 
+.profileButton:hover {
+  transform: scale(1.1);
+}
 
-.profileImage{
-    border-radius: 50%;
-    margin: 20px;
+.profileButton:active {
+  transform: scale(0.95);
+}
+
+.profileImage {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  transition: border-color 0.3s ease;
+}
+
+.profileButton:hover .profileImage {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.menuButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.menuButton:active {
+  transform: scale(0.95);
+}
+
+.burgerIcon {
+  color: white;
+  font-size: 32px;
+  transition: color 0.2s ease;
+}
+
+.menuButton:hover .burgerIcon {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 600px) {
+  .headerMain {
+    height: 80px;
+  }
+
+  .headerContent {
+    padding: 0 25px;
+  }
+
+  .profileImage {
+    width: 56px;
+    height: 56px;
+  }
+
+  .burgerIcon {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .headerContent {
+    padding: 0 50px;
+  }
+
+  .burgerIcon {
+    font-size: 40px;
+  }
 }

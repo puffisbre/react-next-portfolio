@@ -27,7 +27,17 @@
     justify-content: center;
     text-align: left;
     width: 90vw;
-    margin-bottom: 100px;
+    max-width: 100%;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
+
+.firstProject img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 20px 0;
 }
 
 .projectsSection{
@@ -36,8 +46,9 @@
     align-items: center;
     justify-content: center;
     color: white;
-    margin-top: 200px;
-    height: 200vh;
+    padding-top: 150px;
+    min-height: auto;
+    margin-bottom: 50px;
 }
 
 
@@ -49,7 +60,7 @@
     align-items: center;
     justify-content: center;
     color: white;
- padding-top: 600px;
+    padding-top: 200px;
 }
 .projectsSection p{
     font-size: 25px;
@@ -89,8 +100,9 @@
     align-items: center;
     justify-content: center;
     color: white;
-    padding-top: 900px;
-    height: 200vh;
+    padding-top: 150px;
+    min-height: auto;
+    margin-bottom: 50px;
 }
 
 .firstProject{
@@ -98,8 +110,16 @@
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    width: 40vw;
+    width: 100%;
+    max-width: 1200px;
     margin-bottom: 100px;
+    padding: 0 300px;
+}
+
+.firstProject img{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
 }
 
  }

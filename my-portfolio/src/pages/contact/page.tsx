@@ -13,15 +13,54 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("mgvzjlod");
   const formRef = useRef<HTMLFormElement>(null);
 
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  const infoContainerRef = useRef<HTMLDivElement>(null);
+  const contactSection1Ref = useRef<HTMLDivElement>(null);
+  const contactSection2Ref = useRef<HTMLDivElement>(null);
+  const contactSection3Ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (state.succeeded && formRef.current) {
       formRef.current.reset();
     }
   }, [state.succeeded]);
 
+  useEffect(() => {
+    const observers = [
+      { ref: titleRef, className: 'fade-in-up' },
+      { ref: formContainerRef, className: 'fade-in-left', delay: 50 },
+      { ref: infoContainerRef, className: 'fade-in-right', delay: 75 },
+      { ref: contactSection1Ref, className: 'fade-in-up', delay: 100 },
+      { ref: contactSection2Ref, className: 'fade-in-up', delay: 125 },
+      { ref: contactSection3Ref, className: 'fade-in-up', delay: 150 },
+    ].map(({ ref, className, delay }) => {
+      if (!ref.current) return null;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              ref.current?.classList.add('visible');
+            }, delay || 0);
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+      );
+      
+      observer.observe(ref.current);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(obs => obs?.disconnect());
+    };
+  }, []);
+
   return (
     <>
-      <h3 className={styles.sectionTitle}>Contact</h3>
+      <h3 ref={titleRef} className={`${styles.sectionTitle} fade-in-up`}>Contact</h3>
 
       {state.succeeded && (
         <p role="status" className={styles.success}>
@@ -35,7 +74,7 @@ const Contact = () => {
       )}
 
       <section className={styles.contactContainer}>
-        <div className={styles.formContainer}>
+        <div ref={formContainerRef} className={`${styles.formContainer} fade-in-left delay-200`}>
           <form ref={formRef} onSubmit={handleSubmit} className={styles.theForm}>
             <div className={styles.formSection}>
               <label htmlFor="name">Name</label>
@@ -95,15 +134,15 @@ const Contact = () => {
           </form>
         </div>
 
-        <div className={styles.infoContainer}>
-          <div className={styles.contactSection}>
+        <div ref={infoContainerRef} className={`${styles.infoContainer} fade-in-right delay-300`}>
+          <div ref={contactSection1Ref} className={`${styles.contactSection} fade-in-up delay-400`}>
             <h1 style={{ marginTop: "20px" }}>Where do I live?</h1>
             <p>
               Right now I live in Stockholm. More exactly outside Stockholm at
               Värmdö
             </p>
           </div>
-          <div className={styles.contactSection}>
+          <div ref={contactSection2Ref} className={`${styles.contactSection} fade-in-up delay-500`}>
             <h1 style={{ marginTop: "20px" }}>
               What am I searching for right now?
             </h1>
@@ -113,7 +152,7 @@ const Contact = () => {
               spot!
             </p>
           </div>
-          <div className={styles.contactSection}>
+          <div ref={contactSection3Ref} className={`${styles.contactSection} fade-in-up delay-600`}>
             <h1 style={{ marginTop: "20px" }}>My socials</h1>
             <div className={styles.socialLinks}>
               <a

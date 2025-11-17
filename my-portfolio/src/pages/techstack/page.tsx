@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 import Image from 'next/image';
 import { FaNodeJs as NodeIcon } from "react-icons/fa6";
@@ -39,7 +39,63 @@ const Techstack = () => {
      const mongoDbStyle = {color: '#3FA037', fontSize: '30px'};
      const fireBaseStyle = {color: '#FF8F00', fontSize: '30px'};
    
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLHeadingElement>(null);
 
+  useEffect(() => {
+    const observers = [
+      { ref: titleRef, className: 'fade-in-up' },
+      { ref: containerRef, className: 'fade-in-up', delay: 50 },
+      { ref: footerRef, className: 'fade-in-up', delay: 100 },
+    ].map(({ ref, className, delay }) => {
+      if (!ref.current) return null;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              ref.current?.classList.add('visible');
+            }, delay || 0);
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+      );
+      
+      observer.observe(ref.current);
+      return observer;
+    });
+
+    // Animate individual icons with stagger
+    const iconObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 30);
+            iconObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -80px 0px' }
+    );
+
+    // Wait for container to render
+    setTimeout(() => {
+      const icons = containerRef.current?.querySelectorAll(`.${styles.iconParent}`);
+      icons?.forEach((icon) => {
+        icon.classList.add('scale-in');
+        iconObserver.observe(icon);
+      });
+    }, 50);
+
+    return () => {
+      observers.forEach(obs => obs?.disconnect());
+      iconObserver.disconnect();
+    };
+  }, []);
 
   const allIcons = 
   [
@@ -107,11 +163,11 @@ const Techstack = () => {
   return (
     <>
     <section className={styles.techStackSection}>
-    <h3 style={{textAlign: 'center',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Techstack</h3>
-    <div className={styles.techStackContainer}>
+    <h3 ref={titleRef} className="fade-in-up" style={{textAlign: 'center',fontWeight: 'bolder', color: 'white', marginBottom: '30px'}}>My Techstack</h3>
+    <div ref={containerRef} className={`${styles.techStackContainer} fade-in-up delay-200`}>
    {allIcons}
     </div>
-    <h4 style={{textAlign: 'center', color: 'white'}}>And much more...</h4>
+    <h4 ref={footerRef} className="fade-in-up delay-400" style={{textAlign: 'center', color: 'white'}}>And much more...</h4>
     </section>
     </>
   )

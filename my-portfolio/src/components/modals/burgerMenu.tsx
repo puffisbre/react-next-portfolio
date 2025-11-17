@@ -14,7 +14,6 @@ type BurgerMenu = {
 }
 
 const BurgerMenu: React.FC<BurgerMenu> = ({home, about, techstack, projects, contact, closeMenu}) => {
-    const closeIcon = {fontSize: '40px'};
 const [closing, setClosing] = useState(false);
  const scrollTo = (targetId: string) => {
     setClosing(true)
@@ -34,19 +33,44 @@ const [closing, setClosing] = useState(false);
       closeMenu();
     }, 200); 
   };
+
+  const handleOverlayClick = () => {
+    handleClose();
+  };
+
   return (
     <>
+    <div 
+      className={`${styles.overlay} ${closing ? styles.overlayClose : styles.overlayOpen}`}
+      onClick={handleOverlayClick}
+    />
     <div className={`${styles.menuContainer} ${closing ? styles.menuClose : styles.menuOpen}`}>
-        <button className={styles.closeButton} onClick={handleClose}><MdClose style={closeIcon}/></button>
+        <button 
+          className={styles.closeButton} 
+          onClick={handleClose}
+          aria-label="Close menu"
+        >
+          <MdClose className={styles.closeIcon} />
+        </button>
           <ul className={styles.menuList}>
-        <li className={styles.listItem} onClick={() => scrollTo('home')}>{home}</li>
-        <li className={styles.listItem} onClick={() => scrollTo('about')}>{about}</li>
-        <li className={styles.listItem} onClick={() => scrollTo('techstack')}>{techstack}</li>
-        <li className={styles.listItem} onClick={() => scrollTo('projects')}>{projects}</li>
-        <li className={styles.listItem} onClick={() => scrollTo('contact')}>{contact}</li>
+        <li className={styles.listItem} onClick={() => scrollTo('home')}>
+          <span className={styles.listItemText}>{home}</span>
+        </li>
+        <li className={styles.listItem} onClick={() => scrollTo('about')}>
+          <span className={styles.listItemText}>{about}</span>
+        </li>
+        <li className={styles.listItem} onClick={() => scrollTo('techstack')}>
+          <span className={styles.listItemText}>{techstack}</span>
+        </li>
+        <li className={styles.listItem} onClick={() => scrollTo('projects')}>
+          <span className={styles.listItemText}>{projects}</span>
+        </li>
+        <li className={styles.listItem} onClick={() => scrollTo('contact')}>
+          <span className={styles.listItemText}>{contact}</span>
+        </li>
       </ul>
     </div>
-    </> 
+    </>
   )
 }
 

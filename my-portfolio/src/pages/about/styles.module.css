@@ -4,8 +4,9 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 72vh;
-    margin-bottom: 150px;
+    min-height: 72vh;
+    margin-bottom: 100px;
+    padding: 0 20px;
 }
 
 .aboutContainer h3{
@@ -23,10 +24,10 @@
 
 .sectionTitle{
   text-align:center;
- font-size: 30px;
+  font-size: 30px;
   color:white ;
-  padding-top: 600px;
-  font-size: 50px;
+  padding-top: 150px;
+  margin-bottom: 30px;
 }
 
 .imageSize{
@@ -52,17 +53,18 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 72vh;
-    margin-bottom: 150px;
+    min-height: 72vh;
+    margin-bottom: 100px;
     gap: 40px;
+    padding: 0 40px;
 }
 
 .sectionTitle{
   text-align:center;
- font-size: 30px;
-  color:white ;
-  padding-top: 600px;
   font-size: 50px;
+  color:white ;
+  padding-top: 200px;
+  margin-bottom: 50px;
 }
 
 .aboutContainer p{
@@ -87,9 +89,13 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 52vh;
-    margin-bottom: 150px;
-    gap: 40px;
+    min-height: 52vh;
+    margin-bottom: 100px;
+    gap: 60px;
+    padding: 0 300px;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
 }
       .aboutContainer h3{
     font-size: 30px;
@@ -100,6 +106,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 800px;
 }
 
 .aboutContainer p{
@@ -113,13 +120,14 @@
     height: 270px;
     overflow: hidden;
     position: relative;
+    flex-shrink: 0;
 }
 
 .sectionTitle{
   text-align:center;
- font-size: 30px;
-  color:white ;
-  padding-top: 200px;
   font-size: 50px;
+  color:white ;
+  padding-top: 150px;
+  margin-bottom: 50px;
 }
  }
