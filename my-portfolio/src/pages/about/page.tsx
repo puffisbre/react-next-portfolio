@@ -17,7 +17,7 @@ const About = forwardRef<HTMLElement, AboutProps>((_props, ref) => {
       { ref: titleRef, className: 'fade-in-up' },
       { ref: imageRef, className: 'fade-in-left', delay: 50 },
       { ref: textRef, className: 'fade-in-right', delay: 75 },
-    ].map(({ ref, className, delay }) => {
+    ].map(({ ref, delay }) => {
       if (!ref.current) return null;
       
       const observer = new IntersectionObserver(

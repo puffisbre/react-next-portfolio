@@ -34,7 +34,7 @@ const Contact = () => {
       { ref: contactSection1Ref, className: 'fade-in-up', delay: 100 },
       { ref: contactSection2Ref, className: 'fade-in-up', delay: 125 },
       { ref: contactSection3Ref, className: 'fade-in-up', delay: 150 },
-    ].map(({ ref, className, delay }) => {
+    ].map(({ ref, delay }) => {
       if (!ref.current) return null;
       
       const observer = new IntersectionObserver(

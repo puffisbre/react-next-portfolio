@@ -48,7 +48,7 @@ const Techstack = () => {
       { ref: titleRef, className: 'fade-in-up' },
       { ref: containerRef, className: 'fade-in-up', delay: 50 },
       { ref: footerRef, className: 'fade-in-up', delay: 100 },
-    ].map(({ ref, className, delay }) => {
+    ].map(({ ref, delay }) => {
       if (!ref.current) return null;
       
       const observer = new IntersectionObserver(

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import Image from 'next/image';
 import HomeImage from '../../../public/images/cartoon-coder.png'
@@ -17,7 +17,7 @@ const Home = () => {
       { ref: imageRef, className: 'fade-in-right', delay: 50 },
       { ref: roleRef, className: 'fade-in-up', delay: 25 },
       { ref: experienceRef, className: 'fade-in-up', delay: 50 },
-    ].map(({ ref, className, delay }) => {
+    ].map(({ ref, delay }) => {
       if (!ref.current) return null;
       
       const observer = new IntersectionObserver(

@@ -42,7 +42,7 @@ const Projects = () => {
       { ref: project1Ref, className: 'fade-in-up', delay: 25 },
       { ref: project2Ref, className: 'fade-in-up', delay: 50 },
       { ref: project3Ref, className: 'fade-in-up', delay: 75 },
-    ].map(({ ref, className, delay }) => {
+    ].map(({ ref, delay }) => {
       if (!ref.current) return null;
       
       const observer = new IntersectionObserver(
